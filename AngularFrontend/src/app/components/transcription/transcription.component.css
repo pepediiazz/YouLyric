@@ -1,0 +1,136 @@
+body, html {
+  height: 100%;
+  min-height: 100vh;
+  margin: 0px;
+}
+
+.transcription-section {
+  width: 100%;
+  height: 100%;
+  font-family: "Droid Sans", arial, verdana, sans-serif;
+  font-weight: 700;
+  color: #EBD71C;
+  overflow: hidden;
+  position: relative;
+}
+
+.transcription-section .intro-text {
+  position: relative;
+  max-width: 16em;
+  font-size: 200%;
+  font-weight: 400;
+  margin: 20% auto;
+  color: #4ee;
+  opacity: 0;
+  z-index: 1;
+  text-align: center;
+  animation: intro 2s ease-out;
+}
+
+.transcription-section .main-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) perspective(350px) rotateX(25deg);
+  width: 80%;
+  max-width: 800px;
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+  color: #EBD71C;
+  overflow: hidden;
+  height: 100vh; /* Asegura que el contenedor tenga la altura de la ventana gráfica */
+}
+
+
+.transcription-section .main-content p {
+  margin: 0 auto; /* Centra los párrafos horizontalmente */
+  line-height: 1.8; /* Mejora el espacio entre líneas */
+  word-wrap: break-word; /* Asegura que el texto no se salga del contenedor */
+  max-width: 100%; /* Mantiene el texto dentro del ancho del contenedor */
+}
+.transcription-section .main-content .title-content {
+  position: absolute;
+  top: 100%;
+  animation: scroll 60s linear 0s forwards; /* Ajusta la duración según sea necesario */
+}
+
+
+.transcription-section .main-content .content-header {
+  text-align: center;
+}
+
+.form-section {
+  margin: 40px auto;
+  width: 50%;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px #ffe81f;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+}
+
+button.submit-btn {
+  background-color: #ffe81f;
+  color: black;
+  font-size: 1.2rem;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+button.submit-btn:hover {
+  transform: scale(1.1);
+}
+
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffe81f;
+  z-index: 1000;
+}
+
+@keyframes intro {
+  0% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@keyframes scroll {
+  0% { top: 100%; }
+  100% { top: -100%; } /* Ajusta este valor según la longitud del texto */
+}
+
+
+@media screen and (max-width: 720px) {
+  .transcription-section .main-content {
+    font-size: 35px;
+  }
+}

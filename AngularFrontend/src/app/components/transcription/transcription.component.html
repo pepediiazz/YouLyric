@@ -1,0 +1,60 @@
+<section class="transcription-section" *ngIf="transcription">
+  <!-- Texto introductorio -->
+  <p class="intro-text">Hace mucho tiempo, en una galaxia muy, muy lejana...</p>
+
+  <!-- Contenido principal del crawl -->
+  <div class="main-content">
+    <div class="title-content">
+      <div class="content-header">
+
+        <h2>{{ transcriptionTitle }}</h2>
+      </div>
+      <p *ngFor="let line of transcription.split('.')">
+        {{ line }}
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<!-- Formulario y carga mientras no hay transcripción -->
+<div class="form-section" *ngIf="!transcription && !isLoading">
+  <form (ngSubmit)="onSubmit()" class="transcription-form">
+    <div class="form-group">
+      <label for="videoURL">URL del Video de YouTube:</label>
+      <input
+        type="text"
+        id="videoURL"
+        [(ngModel)]="videoURL"
+        name="videoURL"
+        placeholder="Ingresa la URL del video"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="model">Modelo de Transcripción:</label>
+      <select id="model" [(ngModel)]="model" name="model" required>
+        <option value="tiny">Tiny</option>
+        <option value="base">Base</option>
+        <option value="small">Small</option>
+        <option value="medium">Medium</option>
+        <option value="large">Large</option>
+        <option value="turbo">Turbo</option>
+      </select>
+
+    </div>
+    <div class="form-group">
+      <label for="language">Idioma:</label>
+      <select id="language" [(ngModel)]="language" name="language" required>
+        <option value="en">Inglés</option>
+        <option value="es">Español</option>
+      </select>
+    </div>
+    <button type="submit" class="submit-btn">Transcribir</button>
+  </form>
+</div>
+
+<div *ngIf="isLoading" class="loading-overlay">
+  <div class="loader"></div>
+  <p>Procesando...</p>
+</div>
