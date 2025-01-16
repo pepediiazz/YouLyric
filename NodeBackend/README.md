@@ -35,7 +35,9 @@ Pasos para construir la imagen Docker:
 Asegúrate de tener Docker instalado en tu máquina.
 
 En el directorio raíz del proyecto (donde se encuentra el Dockerfile), ejecuta el siguiente comando para construir la imagen:
+
 docker build -t youlirics-backend .
+
 La aplicación se encargará de levantar el contenedor automáticamente cuando sea necesario.
 
 ## Nota sobre Whisper para CPU y GPU
